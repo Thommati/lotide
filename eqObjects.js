@@ -92,7 +92,7 @@ const nestedObject1 = {
       }
     }
   }
-}
+};
 
 const nestedObject2 = {
   a: [1, 2, [3, 4, 5], {word: 'hello'}],
@@ -110,6 +110,6 @@ const nestedObject2 = {
       }
     }
   }
-}
+};
 
 assertEqual(eqObjects(nestedObject1, nestedObject2), true);
