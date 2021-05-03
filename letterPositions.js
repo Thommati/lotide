@@ -1,3 +1,6 @@
+// Pass in a string and it returns an object of all the letters
+// in the string with an array of indices where those letters
+// occur in the string.  Does not report whitespace.
 const letterPositions = function(sentence) {
   sentence = sentence.toLowerCase();
   const letterLocations = {};
@@ -18,32 +21,3 @@ const letterPositions = function(sentence) {
 };
 
 module.exports = letterPositions;
-
-// TESTS
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] === arr2[i]) {
-      continue;
-    }
-    return false;
-  }
-  return true;
-};
-
-const assertArraysEqual = function(arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    console.log(`✅ Assertion Passed: ${arr1} === ${arr2}`);
-  } else {
-    console.log(`🔴 Assertion Failed: ${arr1} !== ${arr2}`);
-  }
-};
-
-const result = letterPositions('hello');
-console.log(result);
-assertArraysEqual(result.h, [0]);
-assertArraysEqual(result.e, [1]);
-assertArraysEqual(result.l, [2, 3]);
-assertArraysEqual(result.o, [4]);
