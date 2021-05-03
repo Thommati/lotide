@@ -53,6 +53,8 @@ const eqObjects = function(object1, object2) {
   return false;
 };
 
+module.exports = eqObjects;
+
 
 // TESTS
 

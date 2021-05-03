@@ -10,6 +10,7 @@ const takeUntil = function(array, callback) {
   return output;
 };
 
+module.exports = takeUntil;
 
 // TESTS
 const eqArrays = function(arr1, arr2) {

@@ -8,6 +8,8 @@ const map = (array, callback) => {
   return results;
 };
 
+module.exports = map;
+
 
 // TESTS
 const eqArrays = function(arr1, arr2) {
