@@ -1,0 +1,26 @@
+{
+  "name": "lotide",
+  "version": "1.0.0",
+  "description": "lotide project consisting of various useful JS functions",
+  "main": "assertArraysEqual.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thommati/lotide.git"
+  },
+  "author": "Matthew Thompson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thommati/lotide/issues"
+  },
+  "homepage": "https://github.com/Thommati/lotide#readme",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2"
+  }
+}
