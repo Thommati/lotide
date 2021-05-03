@@ -1,24 +1,6 @@
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] === arr2[i]) {
-      continue;
-    }
-    return false;
-  }
-  return true;
-};
-
-const assertArraysEqual = function(arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    console.log(`✅ Assertion Passed: ${arr1} === ${arr2}`);
-  } else {
-    console.log(`🔴 Assertion Failed: ${arr1} !== ${arr2}`);
-  }
-};
-
+// Removes matching elements from an array.
+// source: the array to remove elements from
+// itemsToRemove: an array of items to remove from source
 const without = function(source, itemsToRemove) {
   const result = [];
   for (let item of source) {
@@ -36,12 +18,3 @@ const without = function(source, itemsToRemove) {
 };
 
 module.exports = without;
-
-// TEST
-assertArraysEqual(without([], ['a']), []);
-assertArraysEqual(without(['b', '1', 5, 'a', 1], ['a', '5', 1]), ['b', '1', 5]);
-
-const sourceArray = [1, 2, 3, 4, 5];
-const itemsToRemoveArray = [3, 4];
-assertArraysEqual(without(sourceArray, itemsToRemoveArray), [1, 2, 5]);
-assertArraysEqual(sourceArray, [1, 2, 3, 4, 5]);
