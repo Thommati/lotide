@@ -1,11 +1,8 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🔴 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
+//  Makes use of a modified eqArrays that breaks if the modified version is
+// imported in instead of being in the same file.  I assume it has something
+// to do with the two functions calling each other as well as importing
+// each other not playing nice.  Gives eqArrays / eqObjects not a function
+// errors if importing each other.
 const eqArrays = function(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
@@ -29,6 +26,7 @@ const eqArrays = function(arr1, arr2) {
   return true;
 };
 
+// Compare objects with nested objects, arrays, and arrays with objects...
 const eqObjects = function(object1, object2) {
   const keys1 = Object.keys(object1);
   const keys2 = Object.keys(object2);
@@ -54,64 +52,3 @@ const eqObjects = function(object1, object2) {
 };
 
 module.exports = eqObjects;
-
-
-// TESTS
-
-// Primitive values
-const ab = { a: '1', b: '2' };
-const ba = { b: '2', a: '1' };
-const abc = { a: '1', b: '2', c: '3' };
-assertEqual(eqObjects(ab, ba), true);
-assertEqual(eqObjects(ab, abc), false);
-
-// Array values
-const cd = { c: '1', d: ['2', 3] };
-const dc = { d: ['2', 3], c: '1' };
-const cd2 = { c: '1', d: ['2', 3, 4] };
-assertEqual(eqObjects(cd, dc), true);
-assertEqual(eqObjects(cd, cd2), false);
-
-
-// Object values
-assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false);
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false);
-
-const nestedObject1 = {
-  a: [1, 2, [3, 4, 5], {word: 'hello'}],
-  b: 'woof',
-  c: {
-    cats: ['tiger', 'jaguar', 'lynx', 'cougar'],
-    cars: {
-      corvette: {
-        cylinders: 8,
-        gears: 7
-      },
-      viper: {
-        cylinders: 10,
-        gears: 6
-      }
-    }
-  }
-};
-
-const nestedObject2 = {
-  a: [1, 2, [3, 4, 5], {word: 'hello'}],
-  b: 'woof',
-  c: {
-    cats: ['tiger', 'jaguar', 'lynx', 'cougar'],
-    cars: {
-      corvette: {
-        cylinders: 8,
-        gears: 7
-      },
-      viper: {
-        cylinders: 10,
-        gears: 6
-      }
-    }
-  }
-};
-
-assertEqual(eqObjects(nestedObject1, nestedObject2), true);
