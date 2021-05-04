@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@thommati/lotide",
   "version": "1.0.0",
-  "description": "lotide project consisting of various useful JS functions",
+  "description": "A mock mini-lodash project developed for learning as part of Lighthouse Labs Web Development Bootcamp.  Not meant for production!",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -13,7 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/Thommati/lotide.git"
   },
-  "author": "Matthew Thompson",
+  "author": {
+    "name": "Matthew Thompson",
+    "email": "matthew.thompson@hotmail.ca"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Thommati/lotide/issues"
